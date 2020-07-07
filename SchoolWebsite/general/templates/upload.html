@@ -1,0 +1,17 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    {% if perms.SchoolWebsite.can_add_course %}
+        <h2>Upload</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="document">
+            <button type="submit">Upload File</button>
+        </form>
+
+        {% if url %}
+            <p>Uploaded file:<a href="{{ url }}">{{ url }}</a></p>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

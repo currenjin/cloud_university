@@ -1,0 +1,38 @@
+{% extends "header.html" %}
+
+{% block content %}
+    
+    <h3>{{ name }}</h3>
+    <form action="/general/edit" method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        
+        <table style="margin-left:auto;margin-right:auto;width:20em">
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>연락처</td>
+                <td>{{ form.contactinfo }}</td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td>{{ form.address }}</td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td>{{ form.email }}</td>
+            </tr>
+            <tr>
+                <td>전화번호</td>
+                <td>{{ form.phone }}</td>
+            </tr>
+        </table>
+                
+        <a href="../displayinfo" class="btn btn-primary custom" >돌아가기</a>
+        <input type="submit" class="btn btn-primary custom" value="제출">
+        
+    </form>
+
+{% endblock %}

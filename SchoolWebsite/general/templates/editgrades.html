@@ -1,0 +1,64 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<style>
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+</style>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <div class="card-body">
+        <h5 class="card-title">{{ user.name }}</h5>
+            <p class="card-text">
+
+                <table id="managegrades" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Course</th>
+                            <th>Student</th>
+                            <th>Grade</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      {% for m in membergrades %}
+                        {% if m == editgrade %}
+                        <tr>
+                            <form id="grade" action="/general/submitgrade/{{ m.pk }}" method="post">
+                            {% csrf_token %}
+                                <td>{{ m.course.name }}</td>
+                                <td>{{ i.name }}</td>
+                                <td>
+                                    <select id="gradeselect" name="grade">
+                                        {% for g in grades %}
+                                        <option value="{{g.value}}">{{g.value}}</option>
+                                        {% endfor %}
+                                    </select>
+                                </td>
+                                <td><a id="gradesave"><i class="material-icons">&#xe161;</i></a></td>
+                            </form>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td>{{ m.course.name }}</td>
+                            <td>{{ m.user.username }}</td>
+                            <td>{{ m.grade.value }}</td>
+                            <td><a href="/general/editgrades/{{ m.pk }}"><i class='far fa-edit'></i></a></td>
+                        </tr>
+                        {% endif %}
+                      {% endfor %}
+                    </tbody>
+                </table>
+            </p>
+        <a href="/general/" class="btn btn-primary">뒤로</a>
+    </div>
+
+{% endblock %}

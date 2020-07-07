@@ -1,0 +1,84 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<div id="card-body" class="card-body">
+    <h5 class="card-title">강의 업로드</h5>
+        <p id="contentcard" class="card-text">
+
+        {% if perms.general.add_course %}
+
+            <!-- only show course for logged in professor -->
+            <!-- save lectureno that doesn't duplicate -->
+            <label for="course">Course:</label>
+            <select name="course" id="course">
+                {% for c in courses %}
+                    <option value="{{ c.pk }}">{{ c.name }}</option>
+                {% endfor %}
+            </select><br>
+            <label for="lectureno">Lecture No:</label>
+            <input type="text" id="lectureno" name="lectureno"><br>
+            <label for="videoname">Video Name:</label>
+            <input type="text" id="videoname" name="videoname"><br>
+            <input type="file" id="myFileField" name="myFile" /><br><br>
+            <button id="fileSubmit">Submit</button>
+
+            <br><br>
+            <video width='400' controls>
+            <source src='{{ MEDIA_URL }}1.%20Introduction%20to%20Superposition.mp4' type='video/mp4'>
+            Your browser does not support the video tag.
+            </video>
+            <br><br>
+            </p>
+
+            </body>
+            <script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'cpsh'},{'server':'p3plcpnl0769'}) // Monitoring performance to make your website faster. If you want to opt-out, please contact web hosting support.</script><script src='https://img1.wsimg.com/tcc/tcc_l.combined.1.0.6.min.js'></script>
+        {% endif %}
+
+        <a href="/general/" class="btn btn-primary">뒤로</a>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+
+        document.getElementById("fileSubmit").onclick = function(){
+
+            // 무조건 loading 필요
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+
+            // OpenStack Swift로 보냄
+            var formData = new FormData();
+            formData.append("myFile", document.getElementById("myFileField").files[0], document.getElementById("myFileField").files[0]['name']);
+            var xhr = new XMLHttpRequest();
+
+            /*
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    alert(xhr.responseText);
+                }
+            }*/
+            xhr.open("PUT", "http://121.140.73.126:38080/v1/AUTH_3e2da14f36094bf89e94683138e2da08/Videos/" + document.getElementById("myFileField").files[0]['name']);
+            
+            xhr.setRequestHeader("Content-Type", "multipart/form-data");
+            xhr.setRequestHeader("X-Auth-Token", "gAAAAABfAqtheFof9oEri8-NKR4ZdBXTjhDGH_h_eFK6E1QEnp84q18Lqh9PGHG6QiN7nioT4_q28TEI6lp1YvOWoaevFYQwQKjYmt48pyjLLG_KOo-Az9Pp66AI43kCFoeI69pbWyDTrjsL7-xDlOIYvt5ESYZXl_c-DCwukqT3C9zics-BRWw");
+            xhr.send(formData);
+
+            xhr.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 201) {
+
+                    // somehow pass video path to view
+
+                    window.location.href = '/general/showvideo/' + document.getElementById("course").value + "/" + document.getElementById("lectureno").value + "/" + document.getElementById("videoname").value
+
+                }
+            };
+
+        };
+
+    </script>
+
+{% endblock %}

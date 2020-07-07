@@ -1,0 +1,128 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+<style>
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+}
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.css"/>
+
+    <div class="card-body">
+        <h5 class="card-title">{{ name }}</h5>
+            <p class="card-text">
+
+                <table>
+                    <tr>
+                        <td>
+                            <label for="semester">Semester:</label>
+                        </td>
+                        <td>
+                            <select name="semester" id="semester">
+                                {% for s in semesters %}
+                                <option data-year="{{s.year}}" data-type="{{s.type}}" value="{{s.pk}}">{{s.year}} {{s.type}}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        <td>
+                            <button id="getCourses">검색</button>
+                        </td>
+                    </tr>
+                </table>
+
+                <form id="regcourse" action="/general/registercourses/{{ upk }}" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                    <input id="sem" name="sem" type="hidden">
+                    <table id = "regcourses">
+                        <thead>
+                            <th></th>
+                            <th>강의</th>
+                            <th>교수</th>
+                        </thead>
+                        <tbody id="tablebody">
+                        </tbody>
+                    </table>
+                    <input type="submit" class="btn btn-primary custom" value="제출">
+                    <a href="../" class="btn btn-primary">뒤로</a>
+                </form>
+            </p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {% load static %}
+    <script src="{% static 'js/jquery.tablecheckbox.min.js' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.21/datatables.min.js"></script>
+
+    <script>
+
+        function getCookie(name) {
+            var cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        var csrftoken = getCookie('csrftoken');
+
+        $(document).ready(function() {
+
+            var table = $('#regcourses').DataTable({
+            });
+
+            $("#sem").val($("#semester").val());
+
+            $("#semester").change(function(){
+                $("#sem").val($("#semester").val());
+            });
+
+            $('table').tablecheckbox();
+
+            $("#getCourses").click(function(){
+
+                $("#tablebody").empty();
+                table.clear()
+
+                $.ajax({
+                    type: "POST",
+                    url: "http://127.0.0.1:8000/general/courses/", 
+                    data: {
+                        'year': $('#semester option:selected').attr('data-year'), 
+                        'type': $('#semester option:selected').attr('data-type')                        
+                    },
+                    headers: {'X-CSRFToken': csrftoken},
+                    success: function(result){
+                        for (var i = 0; i < result.length; i++){
+                            table.row.add(['<input type="checkbox" name="course" value="' + result[i].id + '"></input>', result[i].name, result[i].professor]);
+                        }
+                        table.draw();
+                    },
+                    error: function(){
+                        alert('error');
+                    }
+                });
+            });
+        });
+        
+    </script>
+
+{% endblock %}

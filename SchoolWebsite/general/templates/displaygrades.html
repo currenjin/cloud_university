@@ -1,0 +1,32 @@
+{% extends "header.html" %}
+
+{% block content %}
+
+    <div class="card-body">
+        <h5 class="card-title">{{ name }}</h5>
+            <p class="card-text">
+
+                <table id="grades">
+                    <thead>
+                        <tr>
+                            <th>학기</th>
+                            <th>과목</th>
+                            <th>성적</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for m in membergrade_list %}
+                        <tr>
+                            <td>{{ m.semester.year }} {{ m.semester.type }}</td>
+                            <td>{{ m.course.name }}</td>
+                            <td>{{ m.grade.value }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </p>
+        <a href="../" class="btn btn-primary">뒤로</a>
+    </div>
+
+
+{% endblock %}

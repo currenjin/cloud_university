@@ -1,0 +1,30 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>OOO 대학교</h1>
+  <p>환영합니다</p>
+
+    <table id="announcement" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>공지사항</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for a in ann %}
+            <tr>
+                <td>
+                    {{ a.title }}  
+                </td>
+                <td>    
+                    {{ a.information }}
+                </td>
+                <td>    
+                    {{ a.writer.username }}
+                </td>   
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
