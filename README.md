@@ -12,5 +12,7 @@
 [![](./SchoolWebsite/static/img/show_video.PNG)](https://youtu.be/DcAHcJwkCEo)
 <br><br>
 공지사항을 작성해요.<br>
-[![](./SchoolWebsite/static/img/notice.PNG)](https://youtu.be/gV-IT__gimw)
+[![](./SchoolWebsite/static/img/notice.PNG){: width="100" height="100"](https://youtu.be/gV-IT__gimw)
 <br><br>
+
+<img src=
