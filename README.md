@@ -3,7 +3,7 @@
 **> Main page<br>**
 <img src="./SchoolWebsite/static/img/main.png" width="450px" height="300px"></img><br><br>
 회원가입과 로그인이에요.<br>
-[![](./SchoolWebsite/static/img/sign_up.png)](https://youtu.be/87xEKnryBCw)
+[![](./SchoolWebsite/static/img/sign_up.PNG)](https://youtu.be/87xEKnryBCw)
 <br><br>
 강의 영상을 업로드해요.<br>
 [![](./SchoolWebsite/static/img/upload_video.jpg)](https://youtu.be/bdRQBZx2Pig)
