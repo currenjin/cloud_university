@@ -5,7 +5,8 @@
 회원가입과 로그인이에요.<br><br>
 ***
 <br>
-### **System**<br>
+### **System**
+<br>
 [![sign](./SchoolWebsite/static/img/sign_up.PNG)](https://youtu.be/87xEKnryBCw)
 <br><br>
 강의 영상을 업로드해요.<br>
@@ -19,5 +20,5 @@
 <br><br>
 
 공지사항을 작성해요.<br>
-<a href="https://youtu.be/gV-IT__gimw"><img src="./SchoolWebsite/static/img/notice.PNG"/></a>
+<a href="https://youtu.be/gV-IT__gimw"><img src="./SchoolWebsite/static/img/notice.PNG" width="100"/></a>
 <br><br>
