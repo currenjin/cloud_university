@@ -4,6 +4,8 @@
 <img src="./SchoolWebsite/static/img/main.png" width="450px" height="300px"></img><br><br>
 <br>
 
+***
+
 ### **System**
 <br>
 공지사항<br>
