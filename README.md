@@ -7,18 +7,15 @@
 <br>
 ### **System**
 <br>
-[![sign](./SchoolWebsite/static/img/sign_up.PNG)](https://youtu.be/87xEKnryBCw)
+공지사항을 작성해요.<br>
+<a href="https://youtu.be/gV-IT__gimw"><img src="./SchoolWebsite/static/img/notice.PNG" width="250"/></a>
+<br><br>
+회원가입과 로그인을 해요.<br>
+<a href="https://youtu.be/87xEKnryBCw"><img src="./SchoolWebsite/static/img/sign_up.PNG" width="250"/></a>
 <br><br>
 강의 영상을 업로드해요.<br>
-[![upload_video](./SchoolWebsite/static/img/upload_video.jpg)](https://youtu.be/bdRQBZx2Pig)
+<a href="https://youtu.be/bdRQBZx2Pig"><img src="./SchoolWebsite/static/img/upload_video.jpg" width="250"/></a>
 <br><br>
 강의 영상을 시청해요.<br>
-[![show_video](./SchoolWebsite/static/img/show_video.PNG)](https://youtu.be/DcAHcJwkCEo)
-<br><br>
-공지사항을 작성해요.<br>
-[![notice](./SchoolWebsite/static/img/notice.PNG)](https://youtu.be/gV-IT__gimw)
-<br><br>
-
-공지사항을 작성해요.<br>
-<a href="https://youtu.be/gV-IT__gimw"><img src="./SchoolWebsite/static/img/notice.PNG" width="100"/></a>
+<a href="https://youtu.be/DcAHcJwkCEo"><img src="./SchoolWebsite/static/img/show_video.PNG" width="250"/></a>
 <br><br>
