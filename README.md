@@ -7,7 +7,6 @@
 ***
 
 ### **System**
-<br>
 (이미지 클릭 시 영상으로 이동합니다)<br><br>
 공지사항<br>
 <a href="https://youtu.be/gV-IT__gimw"><img src="./SchoolWebsite/static/img/notice.PNG" width="250" height="200"/></a>
