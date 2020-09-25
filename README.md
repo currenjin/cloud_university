@@ -1,5 +1,5 @@
 ## **cloud_university**
-<br><br>
+
 #### Main page
 <img src="https://user-images.githubusercontent.com/60500649/94154886-519efc00-feb9-11ea-9b2c-cca4e9e66810.png" width="450px" height="300px"></img><br><br>
 <br><br><br>
