@@ -1,12 +1,10 @@
 ## **cloud_university**
 <br><br>
-**> Main page<br>**
+#### Main page
 <img src="https://user-images.githubusercontent.com/60500649/94154886-519efc00-feb9-11ea-9b2c-cca4e9e66810.png" width="450px" height="300px"></img><br><br>
-<br>
+<br><br><br>
 
-***
-
-### **System**
+## **System**
 
 #### 공지사항
 <img src="https://user-images.githubusercontent.com/60500649/94267724-0cd99a80-ff77-11ea-893c-d7a782b460b0.gif" width="250" height="200"/></a>
