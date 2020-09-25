@@ -9,7 +9,7 @@
 ### **System**
 (이미지 클릭 시 영상으로 이동합니다)<br><br>
 공지사항<br>
-<a href="https://youtu.be/gV-IT__gimw"><img src="https://user-images.githubusercontent.com/60500649/94154980-6aa7ad00-feb9-11ea-8ecd-53b78f2fee1e.PNG" width="250" height="200"/></a>
+<img src="https://user-images.githubusercontent.com/60500649/94267724-0cd99a80-ff77-11ea-893c-d7a782b460b0.gif" width="250" height="200"/></a>
 <br><br>
 회원가입과 로그인<br>
 <a href="https://youtu.be/87xEKnryBCw"><img src="https://user-images.githubusercontent.com/60500649/94154924-5b286400-feb9-11ea-8ed5-b85a6b59dfdc.PNG" width="250" height="200"/></a>
